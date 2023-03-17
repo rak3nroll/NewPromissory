@@ -1,4 +1,5 @@
 @include('partials.__header')
+<body class="hold-transition login-page">
 <div class="register-box">
     <div class="register-logo">
         <a href=""><b>User Registration</b></a>
