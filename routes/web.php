@@ -20,3 +20,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[UserController::class, 'index']);
 Route::get('/login',[UserController::class, 'login']);
 Route::get('/register',[UserController::class, 'register']);
+Route::get('/add_promi',[UserController::class, 'add_promi']);

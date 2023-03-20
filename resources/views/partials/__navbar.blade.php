@@ -39,7 +39,7 @@
         </div>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Logout</a>
+        <a href="{{ url('/login') }}" class="nav-link">Logout</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
