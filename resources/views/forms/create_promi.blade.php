@@ -82,7 +82,7 @@
                 <div class="col-sm-6">
                   <div class="form-group">
                     <label>Total Balance</label>
-                    <input type="text" id="input_ot_amount" class="form-control">
+                    <input type="number" id="total_bal" name="total_balance" class="form-control">
                   </div>
                 </div>
               </div>
@@ -92,7 +92,7 @@
                 <div class="col-sm-6">
                   <div class="form-group">
                     <label>Partial Payment</label>
-                    <input type="text" id="input_ot_amount" class="form-control">
+                    <input type="number" id="partial_payment" name="partial" class="form-control">
                   </div>
                 </div>
               </div>
@@ -100,13 +100,23 @@
                 <div class="col-sm-6">
                   <div class="form-group">
                     <label>How many months to pay</label>
-                    <input type="text" id="input_ot_amount" class="form-control">
+                    <input type="number" id="month_to_pay" name="months_to_pay" class="form-control">
                   </div>
                 </div>
                 <div class="col-sm-6">
                   <div class="form-group">
                     <label>Total Amount</label>
-                    <input type="text" id="input_ot_amount" class="form-control">
+                    <input type="number" id="total_amount" name="total" class="form-control" disabled>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label>Payment per month</label>
+                    <input type="number" id="per_month" name="per_month" class="form-control" disabled>
                   </div>
                 </div>
               </div>
@@ -217,6 +227,7 @@
 <script src="../../plugins/toastr/toastr.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../../dist/js/adminlte.min.js"></script>
+
 
 <script>
   $(function() {
@@ -371,6 +382,40 @@
         body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
       })
     });
+  });
+</script>
+<script>
+  function round2Fixed(value) {
+  value = +value;
+
+  if (isNaN(value))
+    return NaN;
+
+  // Shift
+  value = value.toString().split('e');
+  value = Math.round(+(value[0] + 'e' + (value[1] ? (+value[1] + 2) : 2)));
+
+  // Shift back
+  value = value.toString().split('e');
+  return (+(value[0] + 'e' + (value[1] ? (+value[1] - 2) : -2))).toFixed(2);
+}
+</script>
+<script>
+  $('#total_bal, #partial_payment').on('change keyup', function(){
+    var tot_bal = $("#total_bal").val();
+    var partial = $("#partial_payment").val();
+    var tot_amount = tot_bal - partial;
+   
+    $("#total_amount").val(round2Fixed(tot_amount));
+  });
+
+
+  $('#total_amount, #month_to_pay').on('change keyup', function(){
+    var total_amount = $("#total_amount").val();
+    var month_to_pay = $("#month_to_pay").val();
+    var per_month = total_amount / month_to_pay;
+
+    $("#per_month").val(round2Fixed(per_month));
   });
 </script>
 
