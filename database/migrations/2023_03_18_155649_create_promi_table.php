@@ -11,17 +11,28 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tbl_promi', function (Blueprint $table) {
+        Schema::create('tblpromisorries', function (Blueprint $table) {
             $table->id();
             $table->string('consumer_name');
             $table->string('consumer_address');
             $table->string('consumer_contact');
             $table->string('account_no');
             $table->string('no_of_bills');
+            $table->string('total_balance');
+            $table->string('partial_payment');
             $table->string('total_amount');
+            $table->string('months_to_pay');
+            $table->string('per_month');
+            $table->date('start_date');
+            $table->date('exp_date');
+            $table->string('recon_fee');
+            $table->string('tr_no_recon');
+            $table->string('surcharge');
+            $table->string('tr_no_surcharge');
             $table->string('remarks');
-            $table->boolean('is_approve');
-            $table->boolean('is_posted');
+            $table->string('is_verified');
+            $table->string('is_approve');
+            $table->string('is_posted');
             $table->timestamps();
         });
     }
@@ -31,6 +42,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tbl_promi');
+        Schema::dropIfExists('tblpromisorries');
     }
 };
