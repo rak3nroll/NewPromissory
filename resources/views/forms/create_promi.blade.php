@@ -23,7 +23,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="/">Home</a></li>
-              <li class="breadcrumb-item active">New Promissory</li>
+              <li class="breadcrumb-item active">Add New Promissory</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -32,6 +32,8 @@
     <!-- /.content-header -->
 
     <!-- Main content -->
+    <form action="/store/promi" method="post">
+      {{-- @csrf --}}
     <section class="content">
       <div class="row">
         <div class="col-md-6">
@@ -47,16 +49,16 @@
             </div>
             <div class="card-body">
               <div class="form-group">
-                <label for="input_con_name">Consumer Name</label>
-                <input type="text" id="input_con_name" class="form-control">
+                <label for="consumer_name">Consumer Name</label>
+                <input type="text" name="consumer_name" id="consumer_name" class="form-control">
               </div>
               <div class="form-group">
-                <label for="input_con_address">Address</label>
-                <input type="text" id="input_con_address" class="form-control">
+                <label for="consumer_address">Address</label>
+                <input type="text" name="consumer_address" id="consumer_address" class="form-control">
               </div>
               <div class="form-group">
-                <label for="input_con_contact">Contact Number:</label>
-                <input type="text" id="input_con_contact" class="form-control">
+                <label for="contact_no">Contact Number:</label>
+                <input type="text" name="contact_no" id="contact_no" class="form-control">
               </div>
             </div>
             <!-- /.card-body -->
@@ -75,20 +77,20 @@
             </div>
             <div class="card-body">
               <div class="form-group">
-                <label for="input_account_no">Account Number</label>
-                <input type="text" id="input_account_no" class="form-control">
+                <label for="account_no">Account Number</label>
+                <input type="text" name="account_no" id="account_no" class="form-control">
               </div>
               <div class="row">
                 <div class="col-sm-6">
                   <div class="form-group">
-                    <label for="input_no_bill">Number of Bill to Pay</label>
-                    <input type="text" id="input_no_bill" class="form-control">                
+                    <label for="no_of_bill">Number of Bill to Pay</label>
+                    <input type="text" name="no_of_bill" id="no_of_bill" class="form-control">                
                   </div>   
                 </div>
                 <div class="col-sm-6">
                   <div class="form-group">
-                    <label>Total Balance</label>
-                    <input type="number" id="total_bal" name="total_balance" class="form-control">
+                    <label for="total_balance">Total Balance</label>
+                    <input type="number" id="total_balance" name="total_balance" class="form-control">
                   </div>
                 </div>
               </div>
@@ -97,22 +99,22 @@
                 </div>
                 <div class="col-sm-6">
                   <div class="form-group">
-                    <label>Partial Payment</label>
-                    <input type="number" id="partial_payment" name="partial" class="form-control">
+                    <label for="partial">Partial Payment</label>
+                    <input type="number" id="partial" name="partial" class="form-control">
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-sm-6">
                   <div class="form-group">
-                    <label>How many months to pay</label>
-                    <input type="number" id="month_to_pay" name="months_to_pay" class="form-control">
+                    <label for="months_to_pay">How many months to pay</label>
+                    <input type="number" id="months_to_pay" name="months_to_pay" class="form-control">
                   </div>
                 </div>
                 <div class="col-sm-6">
                   <div class="form-group">
-                    <label>Total Amount</label>
-                    <input type="number" id="total_amount" name="total" class="form-control" disabled>
+                    <label for="total_amount">Total Amount</label>
+                    <input type="number" id="total_amount" name="total_amount" class="form-control" disabled>
                   </div>
                 </div>
               </div>
@@ -121,7 +123,7 @@
                 </div>
                 <div class="col-sm-6">
                   <div class="form-group">
-                    <label>Payment per month</label>
+                    <label for="per_month">Payment per month</label>
                     <input type="number" id="per_month" name="per_month" class="form-control" disabled>
                   </div>
                 </div>
@@ -129,51 +131,51 @@
               <div class="row">
                 <div class="col-sm-6">
                   <div class="form-group">
-                    <label>Start Date</label>
-                    <input type="date" id="input_ot_amount" class="form-control">
+                    <label for="start_date">Start Date</label>
+                    <input type="date" name="start_date" id="start_date" class="form-control">
                   </div>
                 </div>
                 <div class="col-sm-6">
                   <div class="form-group">
-                    <label>Expiration Date</label>
-                    <input type="date" id="input_ot_amount" class="form-control">
+                    <label for="exp_date">Expiration Date</label>
+                    <input type="date" name="exp_date" id="exp_date" class="form-control">
                   </div>
                 </div>
               </div>
               <div class="form-group">
-                <label for="input_remarks">Other Charges</label>
+                <label for="">Other Charges</label>
               </div>
               <div class="row">
                 <div class="col-sm-6">
                   <div class="form-group">
-                    <label for="input_no_bill">Reconnection Fee:</label>
-                    <input type="text" id="input_no_bill" class="form-control">             
+                    <label for="recon_fee">Reconnection Fee:</label>
+                    <input type="text" name="recon_fee" id="recon_fee" class="form-control">             
                   </div>
                 </div> 
                 <div class="col-sm-6">
                   <div class="form-group">
-                    <label>TR Number</label>
-                   <input type="text" id="input_ot_amount" class="form-control">
+                    <label for="surcharge">TR Number</label>
+                   <input type="text" name="tr_recon" id="tr_recon" class="form-control">
                   </div>
                 </div>
               </div>    
               <div class="row">
                 <div class="col-sm-6">
                   <div class="form-group">
-                    <label for="input_no_bill">Surcharge:</label>
-                    <input type="text" id="input_no_bill" class="form-control">             
+                    <label for="surcharge">Surcharge:</label>
+                    <input type="text" name="surcharge" id="surcharge" class="form-control">             
                   </div>
                 </div> 
                 <div class="col-sm-6">
                   <div class="form-group">
                     <label>TR Number</label>
-                   <input type="text" id="input_ot_amount" class="form-control">
+                   <input type="text" name="tr_surcharge" id="tr_surcharge" class="form-control">
                   </div>
                 </div>
               </div>                   
               <div class="form-group">
-                <label for="input_remarks">Remarks</label>
-                <textarea id="input_remarks" class="form-control" rows="4"></textarea>
+                <label for="remarks">Remarks</label>
+                <textarea id="remarks" name="remarks" class="form-control" rows="4"></textarea>
               </div>
             </div>
             <!-- /.card-body -->
@@ -186,13 +188,13 @@
         <div class="col-12">
    
           <a href="#" class="btn btn-secondary">Cancel</a>
-          {{-- <input type="submit" value="Submit Promissory" class="btn btn-success float-right"> --}}
-          <button type="button" class="btn btn-success float-right toastrDefaultSuccess">
+          <input type="submit" value="Submit Promissory" class="btn btn-success float-right New_promisorry_add_successs">
+          {{-- <button type="submit" class="btn btn-success float-right New_promisorry_add_successs">
             Submit Promissory
-          </button>
+          </button> --}}
         </div>
       </div>
-      
+    </form>
     </section>
     
     <!-- Main content -->

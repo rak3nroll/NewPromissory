@@ -31,7 +31,7 @@
               </p>
             </a>
           <li class="nav-item">
-            <a href="{{ url('/add_promi') }}" class="nav-link">
+            <a href="/add/promi" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
                 New Promissory

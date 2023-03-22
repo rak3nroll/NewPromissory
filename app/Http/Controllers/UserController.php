@@ -34,7 +34,7 @@ class UserController extends Controller
    public function login(){
     if (view()->exists('user.login'))
     {
-        return view('user.login');  
+        return view('user.login')->with('title','ORMECO-Promisorry Potal | Login');  
     }else{
         return abort(404);
     }
@@ -55,17 +55,14 @@ class UserController extends Controller
    }
 
    public function register(){
-    return view('user.register');
+    return view('user.register')->with('title','ORMECO-Promisorry Potal | Add New User');
    }
    
-   public function add_promi(){
-    return view('forms.create_promi');
-   }
-
    public function store_user(Request $request){
     $validate_request = $request->validate(([
         "name" => ['required','min:2'],
         "email" => ['required','email', Rule::unique('users','email')],
+        "email_verified_at" => now(),
         "password" => 'required|confirmed|min:2'
     ]));
 

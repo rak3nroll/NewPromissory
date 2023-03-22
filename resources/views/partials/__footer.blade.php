@@ -2,12 +2,15 @@
 <!-- ./wrapper -->
 <!-- jQuery -->
 <script src="../../plugins/jquery/jquery.min.js"></script>
+
 <!-- Bootstrap 4 -->
 <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <script src="../../plugins/jquery/jquery.min.js"></script>
+
 <!-- Bootstrap 4 -->
 <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
 <!-- DataTables  & Plugins -->
 <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
@@ -21,6 +24,7 @@
 <script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
 <!-- AdminLTE App -->
 <script src="../../dist/js/adminlte.min.js"></script>
 
@@ -97,8 +101,8 @@
         })
       });
   
-      $('.toastrDefaultSuccess').click(function() {
-        toastr.success('Promissory Successfully Save')
+      $('.New_promisorry_add_successs').click(function() {
+        toastr.success('New Promissory was added successfully')
       });
       $('.toastrDefaultInfo').click(function() {
         toastr.info('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
@@ -228,19 +232,20 @@
     return (+(value[0] + 'e' + (value[1] ? (+value[1] - 2) : -2))).toFixed(2);
   }
   </script>
+
   <script>
-    $('#total_bal, #partial_payment').on('change keyup', function(){
-      var tot_bal = $("#total_bal").val();
-      var partial = $("#partial_payment").val();
+    $('#total_balance, #partial').on('change keyup', function(){
+      var tot_bal = $("#total_balance").val();
+      var partial = $("#partial").val();
       var tot_amount = tot_bal - partial;
      
       $("#total_amount").val(round2Fixed(tot_amount));
     });
   
   
-    $('#total_amount, #month_to_pay').on('change keyup', function(){
+    $('#total_amount, #months_to_pay').on('change keyup', function(){
       var total_amount = $("#total_amount").val();
-      var month_to_pay = $("#month_to_pay").val();
+      var month_to_pay = $("#months_to_pay").val();
       var per_month = total_amount / month_to_pay;
   
       $("#per_month").val(round2Fixed(per_month));
