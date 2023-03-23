@@ -90,7 +90,7 @@
               <div class="card-body">
                 <table id="" class="table table-bordered table-hover">
                   <thead>
-                  <tr align="center">
+                  <tr>
                     <th>Consumer Name</th>
                     <th>Address</th>
                     <th>Contact #</th>
@@ -102,25 +102,18 @@
                   </thead>
                   <tbody>
                     @foreach ($tblpromisorries as $showpromi )                                    
-                  <tr>
+              <tr>
                     <td>{{ $showpromi->consumer_name }}</td>
                     <td>{{ $showpromi->consumer_address }}</td>
-                    <td align="center">{{ $showpromi->consumer_contact }}</td>
-                    <td align="center">{{ $showpromi->account_no }}</td>
-                    <td align="center">{{ $showpromi->no_of_bills }}</td>
-                    <td align="center">{{ $showpromi->total_amount }}</td>
+                    <td>{{ $showpromi->consumer_contact }}</td>
+                    <td>{{ $showpromi->account_no }}</td>
+                    <td>{{ $showpromi->no_of_bills }}</td>
+                    <td>{{ $showpromi->total_amount }}</td>
                     @if ($showpromi->is_approve == '1')
-                    <td align="center">Approved</td>
+                    <td>Approved</td>
                     @else
-                    <td align="center">On-Process</td>
+                    <td>On-Process</td>
                     @endif
-                    <td align="center">
-                      <a class="btn btn-primary btn-sm" href="/promisorry/{{ $showpromi->id }}">
-                       <i class="fas fa-folder">
-                       </i>
-                            View
-                       </a>
-                    </td>
                   </tr>
                   @endforeach
                   </tbody>

@@ -234,9 +234,9 @@
   </script>
 
   <script>
-    $('#total_balance, #partial').on('change keyup', function(){
+    $('#total_balance, #partial_payment').on('change keyup', function(){
       var tot_bal = $("#total_balance").val();
-      var partial = $("#partial").val();
+      var partial = $("#partial_payment").val();
       var tot_amount = tot_bal - partial;
      
       $("#total_amount").val(round2Fixed(tot_amount));

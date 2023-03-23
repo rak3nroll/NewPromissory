@@ -9,7 +9,7 @@
       <div class="card-body register-card-body">
         <p class="login-box-msg">Register a new user</p>
   
-        <form action="/store_user" method="post" id="quickForm">
+        <form action="/store_user" method="post" id="">
           @csrf
           <div class="input-group mb-3">
             <input type="text" name="name" id="name" class="form-control" placeholder="Full name">

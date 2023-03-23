@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AddPromi;
+use App\Models\Promi;
 use App\Models\tbl_promi;
 use App\Models\tblpromisorries;
 use App\Models\User;
@@ -16,21 +17,22 @@ class UserController extends Controller
 {
     public function index(){
         
-        // $approve_promi = tblpromisorries::all();
+        $approve_promi = tblpromisorries::all();
 
-        //  // $count_approve = tbl_promi::where('is_approve', true)->();
-        // $count_approve = DB::table('tblpromisorries')
-        //                 ->where('is_approve', '1')
-        //                 ->count();
+         // $count_approve = tbl_promi::where('is_approve', true)->();
+        $count_approve = DB::table('tblpromisorries')
+                        ->where('is_approve', '1')
+                        ->count();
 
-        // $count_pedning = DB::table('tblpromisorries')
-        //                 ->where('is_approve', '0')
-        //                 ->count();
+        $count_pedning = DB::table('tblpromisorries')
+                        ->where('is_approve', '0')
+                        ->count();
 
-        // return view('index',['tblpromisorries' => $approve_promi, 'count_approve' => $count_approve,'count_pedning' => $count_pedning]);
+        return view('index',['tblpromisorries' => $approve_promi, 'count_approve' => $count_approve,'count_pedning' => $count_pedning]);
         return view('index');
     }
-    
+
+        
    public function login(){
     if (view()->exists('user.login'))
     {
@@ -49,7 +51,7 @@ class UserController extends Controller
     if(auth()->attempt($validate_request)){
         $request->session()->regenerate();
 
-        return redirect('/');
+        return redirect('/',);
     }
 
    }
@@ -84,4 +86,5 @@ class UserController extends Controller
     return redirect('login')->with('message','Successfully Logout');
 
    }
+
 }
