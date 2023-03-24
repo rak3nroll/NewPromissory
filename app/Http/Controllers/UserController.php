@@ -31,7 +31,6 @@ class UserController extends Controller
         return view('index',['tblpromisorries' => $approve_promi, 'count_approve' => $count_approve,'count_pedning' => $count_pedning]);
         return view('index');
     }
-
         
    public function login(){
     if (view()->exists('user.login'))
