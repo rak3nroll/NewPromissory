@@ -15,23 +15,23 @@ class PromiController extends Controller
 
    public function show_promi($id){
     $data = tblpromisorries::findOrFail($id);
-    dd($data);
+    return view('admin.edit',['tblpromisorry'=>$data])->with('title','ORMECO-Promisorry Potal | Update Records Promissory');
    }
 
    public function store_promi(Request $request){
     $validate_request = $request->validate(([
-        "consumer_name" => 'required',
-        "consumer_address" =>'required',
-        "consumer_contact" => 'required',
-        "account_no" =>'required',
-        "no_of_bills" =>'required',
-        "total_balance" =>'required',
-        "partial_payment" => 'required',
-        "total_amount" =>'required',
-        "months_to_pay" =>'required',
-        "per_month" =>'required',
-        "start_date" =>'required',
-        "exp_date" =>'required',
+        "consumer_name" => '',
+        "consumer_address" =>'',
+        "consumer_contact" => '',
+        "account_no" =>'',
+        "no_of_bills" =>'',
+        "total_balance" =>'',
+        "partial_payment" => '',
+        "total_amount" =>'',
+        "months_to_pay" =>'',
+        "per_month" =>'',
+        "start_date" =>'',
+        "exp_date" =>'',
         "recon_fee" => '',
         "tr_no_recon" => '',
         "surcharge" => '',
@@ -45,7 +45,7 @@ class PromiController extends Controller
     tblpromisorries::create($validate_request);
     
     return redirect('/');
-//    dd($validate_request);
+
    }
 
 }

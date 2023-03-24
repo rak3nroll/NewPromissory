@@ -31,4 +31,4 @@ Route::post('/logout',[UserController::class, 'logout']);
 Route::get('/add_promi',[PromiController::class, 'create_promi']);
 Route::post('/add_promi',[PromiController::class, 'store_promi']);
 
-Route::get('/promisorry/{id}',[PromiController::class, 'show_promi']);
+Route::get('/promisorry_{id}',[PromiController::class, 'show_promi']);

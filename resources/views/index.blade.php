@@ -115,7 +115,7 @@
                     <td align="center">On-Process</td>
                     @endif
                     <td align="center">
-                      <a class="btn btn-primary btn-sm" href="/promisorry/{{ $showpromi->id }}">
+                      <a class="btn btn-primary btn-sm" href="/promisorry_{{ $showpromi->id }}">
                        <i class="fas fa-folder">
                        </i>
                             View
