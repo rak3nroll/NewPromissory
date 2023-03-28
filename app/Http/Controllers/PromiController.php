@@ -19,7 +19,7 @@ class PromiController extends Controller
    }
 
    public function store_promi(Request $request){
-    $validate_request = $request->validate(([
+    $validate_request = $request->validate([
         "consumer_name" => '',
         "consumer_address" =>'',
         "consumer_contact" => '',
@@ -40,7 +40,7 @@ class PromiController extends Controller
         "is_verified" => '',
         "is_approve" => '',
         "is_posted" => ''
-    ]));
+    ]);
 
     tblpromisorries::create($validate_request);
     

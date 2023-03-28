@@ -15,9 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('user_type')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+            // 0 = user; 1=verifier; 2=approver; 3=billing_user; 4=admin
+            $table->tinyInteger("role")->default(0);
             $table->timestamps();
         });
     }

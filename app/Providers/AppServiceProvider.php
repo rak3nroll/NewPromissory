@@ -20,5 +20,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
        view()->share('title', 'ORMECO-Promissory Portal');
+       
     }
 }
