@@ -18,14 +18,14 @@ use function Ramsey\Uuid\v1;
 
 class UserController extends Controller
 {      
-//    public function login(){
-//     if (view()->exists('user.login'))
-//     {
-//         return view('user.login')->with('title','ORMECO-Promisorry Potal | Login');  
-//     }else{
-//         return abort(404);
-//     }
-//    }
+   public function login(){
+    if (view()->exists('user.login'))
+    {
+        return view('user.login')->with('title','ORMECO-Promisorry Potal | Login');  
+    }else{
+        return abort(404);
+    }
+   }
 
 //    public function process(Request $request, $uid){
 //     $validate_request = $request->validate([
